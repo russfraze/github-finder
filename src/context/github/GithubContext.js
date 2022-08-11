@@ -41,11 +41,20 @@ export const GithubProvider = ({children}) => {
     // Set loading 
     const setLoading = () => dispatch({type: 'SET_LOADING'})
 
+    // Clear the users from state
+    function handleClear() {
+        dispatch({
+            type: 'CLEAR_USERS',
+            payload: []
+        })
+    }
+
     return <GithubContext.Provider 
     value={{
         users: state.users,
         loading: state.loading,
         searchUsers,
+        handleClear,
     }}>
         {children}
     </GithubContext.Provider>

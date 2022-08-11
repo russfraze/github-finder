@@ -2,7 +2,7 @@ import { useState, useContext } from 'react'
 import GithubContext from '../../context/github/GithubContext'
 
 function UserSearch() {
-    const { users, searchUsers } = useContext(GithubContext)
+    const { users, searchUsers, handleClear } = useContext(GithubContext)
     const [text, setText] = useState('')
 
     function handleChange(e) {
@@ -41,7 +41,7 @@ function UserSearch() {
 
             {users.length > 0 && (
                 <div>
-                    <button className="btn btn-ghost btn-lg">
+                    <button onClick={handleClear} className="btn btn-ghost btn-lg">
                         Clear
                     </button>
                 </div>

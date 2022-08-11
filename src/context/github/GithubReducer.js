@@ -1,4 +1,3 @@
-import {useReducer} from 'react'
 
 const githubReducer = (state, action) => {
     switch(action.type){
@@ -12,6 +11,12 @@ const githubReducer = (state, action) => {
             return{
                 ...state,
                 loading: true
+            }
+
+        case 'CLEAR_USERS':
+            return {
+                ...state,
+                users: action.payload
             }
 
         default: return state
